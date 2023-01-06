@@ -5,7 +5,4 @@ class KeyedString extends KeyedValue<String> {
     required super.key,
     required super.value,
   });
-
-  @override
-  String toString() => value;
 }

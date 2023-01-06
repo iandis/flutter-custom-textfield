@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_textfield/shared/entities/keyed_string.dart';
 
 class MyTextFieldDecoration {
   const MyTextFieldDecoration({
@@ -41,9 +42,12 @@ class MyTextFieldDecoration {
 
   /// The error text to display at the end of the input field.
   /// If null, no error text is displayed.
-  /// 
-  /// The [errorText] can be anything because there might be a case where
+  ///
+  /// The [errorText] is constrained to [KeyedString] because there might be a case where
   /// [errorText] needs to be shown again without changing its text.
-  final Object? errorText;
+  ///
+  /// With [KeyedString] we can manipulate its key to mark it as changed without
+  /// changing its value.
+  final KeyedString? errorText;
   final bool errorTextReshowOnChangedOnly;
 }

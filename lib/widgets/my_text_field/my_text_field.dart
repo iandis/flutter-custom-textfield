@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_custom_textfield/shared/entities/keyed_string.dart';
 import 'package:flutter_custom_textfield/widgets/my_tappable_tooltip/my_tappable_tooltip.dart';
 import 'package:flutter_custom_textfield/widgets/my_text_field/my_text_field_decoration.dart';
 
@@ -42,7 +43,7 @@ class _MyTextFieldState extends State<MyTextField> {
 
   @override
   Widget build(BuildContext context) {
-    final Object? errorText = widget.decoration?.errorText;
+    final KeyedString? errorText = widget.decoration?.errorText;
     final Widget? suffix = widget.decoration?.suffix;
 
     final InputDecorationTheme inputDecorationTheme =
@@ -121,7 +122,7 @@ class _MyTextFieldSuffixWidget extends StatelessWidget {
           'At least one of suffix and errorText must be specified',
         );
 
-  final Object? errorText;
+  final KeyedString? errorText;
   final bool errorTextReshowOnChangedOnly;
   final Widget? suffix;
 

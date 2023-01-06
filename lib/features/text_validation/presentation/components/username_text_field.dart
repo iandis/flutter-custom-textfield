@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_textfield/shared/entities/keyed_string.dart';
 import 'package:flutter_custom_textfield/widgets/my_text_field/my_text_field.dart';
 import 'package:flutter_custom_textfield/widgets/my_text_field/my_text_field_decoration.dart';
 
@@ -12,7 +13,7 @@ class UsernameTextField extends StatelessWidget {
 
   final String? value;
   final ValueChanged<String>? onChanged;
-  final Object? errorText;
+  final KeyedString? errorText;
 
   @override
   Widget build(BuildContext context) {

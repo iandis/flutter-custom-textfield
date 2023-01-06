@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_custom_textfield/shared/entities/keyed_string.dart';
 import 'package:flutter_custom_textfield/widgets/my_tooltip/my_tooltip.dart';
 
 class MyTappableTooltip extends StatefulWidget {
@@ -39,7 +40,7 @@ class MyTappableTooltip extends StatefulWidget {
   final double tooltipPosition;
 
   /// The text to show on the tooltip
-  final Object text;
+  final KeyedString text;
 
   @override
   State<MyTappableTooltip> createState() => _MyTappableTooltipState();
@@ -70,7 +71,7 @@ class _MyTappableTooltipState extends State<MyTappableTooltip> {
       content: Padding(
         padding: const EdgeInsets.all(8),
         child: Text(
-          widget.text.toString(),
+          widget.text.value,
           style: TextStyle(color: widget.tooltipTextColor),
         ),
       ),
