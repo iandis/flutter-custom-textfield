@@ -9,7 +9,6 @@ class MyTextFieldDecoration {
     this.hintText,
     this.counterText,
     this.errorText,
-    this.errorTextReshowOnChangedOnly = true,
   });
 
   /// Optional widget to place on the line before the input.
@@ -49,5 +48,4 @@ class MyTextFieldDecoration {
   /// With [KeyedString] we can manipulate its key to mark it as changed without
   /// changing its value.
   final KeyedString? errorText;
-  final bool errorTextReshowOnChangedOnly;
 }

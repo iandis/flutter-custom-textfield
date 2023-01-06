@@ -25,7 +25,6 @@ class UsernameTextField extends StatelessWidget {
         labelText: 'Username',
         prefix: const Icon(Icons.person),
         errorText: errorText,
-        errorTextReshowOnChangedOnly: false,
       ),
     );
   }

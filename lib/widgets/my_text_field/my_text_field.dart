@@ -69,8 +69,6 @@ class _MyTextFieldState extends State<MyTextField> {
         suffixIcon: errorText != null || suffix != null
             ? _MyTextFieldSuffixWidget(
                 errorText: errorText,
-                errorTextReshowOnChangedOnly:
-                    widget.decoration?.errorTextReshowOnChangedOnly ?? true,
                 suffix: suffix,
               )
             : null,
@@ -115,7 +113,6 @@ class _MyTextFieldState extends State<MyTextField> {
 class _MyTextFieldSuffixWidget extends StatelessWidget {
   const _MyTextFieldSuffixWidget({
     this.errorText,
-    required this.errorTextReshowOnChangedOnly,
     this.suffix,
   }) : assert(
           suffix != null || errorText != null,
@@ -123,7 +120,6 @@ class _MyTextFieldSuffixWidget extends StatelessWidget {
         );
 
   final KeyedString? errorText;
-  final bool errorTextReshowOnChangedOnly;
   final Widget? suffix;
 
   @override
