@@ -373,10 +373,25 @@ class RenderSimpleTooltip extends RenderShiftedBox {
     assert(child!.hasSize);
     assert(hasSize);
 
+    final Size childSize = child!.size;
+    final Offset alignedOffset = _computeAlignedOffset(childSize: childSize);
+    final Offset translatedAlignedOffset = _computeTranslatedAlignedOffset(
+      alignedOffset: alignedOffset,
+      childSize: childSize,
+    );
+    final Offset boundedAlignedOffset = _computeBoundedAlignedOffset(
+      alignedOffset: translatedAlignedOffset,
+      childSize: childSize,
+    );
+
+    final BoxParentData childParentData = child!.parentData! as BoxParentData;
+    childParentData.offset = boundedAlignedOffset;
+  }
+
+  Offset _computeAlignedOffset({required Size childSize}) {
     final double childXOffset;
     final double childYOffset;
     final double additionalOffset = _tailMargin + tailLength;
-    final Size childSize = child!.size;
 
     // Alignment Modifier:
     // dx = 0.5 x alignmentX x target width
@@ -433,18 +448,7 @@ class RenderSimpleTooltip extends RenderShiftedBox {
     final double yAlignmentModifier = 0.5 * alignment.y * rect.size.height;
     final double dy = targetCenterDy + childYOffset + yAlignmentModifier;
 
-    final Offset alignedOffset = Offset(dx, dy);
-    final Offset translatedAlignedOffset = _computeTranslatedAlignedOffset(
-      alignedOffset: alignedOffset,
-      childSize: childSize,
-    );
-    final Offset boundedAlignedOffset = _computeBoundedAlignedOffset(
-      alignedOffset: translatedAlignedOffset,
-      childSize: childSize,
-    );
-
-    final BoxParentData childParentData = child!.parentData! as BoxParentData;
-    childParentData.offset = boundedAlignedOffset;
+    return Offset(dx, dy);
   }
 
   Offset _computeTranslatedAlignedOffset({
